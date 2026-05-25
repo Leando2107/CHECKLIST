@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e9f0f5;
+    padding: 20px;
+    color: #1e2a3e;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+h1 {
+    background: linear-gradient(135deg, #0f2b3d, #1b4f6e);
+    color: white;
+    padding: 18px 24px;
+    border-radius: 28px;
+    margin-bottom: 25px;
+    font-size: 1.7rem;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+h1 small {
+    font-size: 0.8rem;
+    font-weight: normal;
+    background: rgba(255,255,255,0.2);
+    padding: 6px 12px;
+    border-radius: 40px;
+}
+
+/* Sistema de Abas (Tabs) */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.tab-btn {
+    flex: 1;
+    min-width: 180px;
+    background: #cbd5e1;
+    color: #334155;
+    font-size: 1.1rem;
+    padding: 14px 20px;
+    border-radius: 28px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+}
+.tab-btn.active {
+    background: #1b6b8f;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(27,107,143,0.3);
+}
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s;
+}
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Grid principal */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+/* Card estilo */
+.card {
+    background: white;
+    border-radius: 28px;
+    padding: 20px 24px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.2s;
+    margin-bottom: 24px;
+}
+.card h2 {
+    font-size: 1.5rem;
+    border-left: 6px solid #1b6b8f;
+    padding-left: 16px;
+    margin-bottom: 18px;
+    color: #0f2b3d;
+}
+
+/* Formulário veículo */
+.form-veiculo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 16px;
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.input-group label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #1f5e7e;
+}
+.input-group input, .input-group textarea {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    background: #fefefe;
+    transition: 0.2s;
+    width: 100%;
+}
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: #1b6b8f;
+    box-shadow: 0 0 0 3px rgba(27,107,143,0.2);
+}
+
+/* Área da câmera e QR Gerado */
+.scanner-area, .qr-output-area {
+    background: #f8fafc;
+    border-radius: 24px;
+    padding: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#qr-reader {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.scanner-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+#qrcode-box {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* Botões */
+button {
+    background: #1b6b8f;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+button.secondary { background: #475569; }
+button.warning { background: #b45353; }
+button.success { background: #2b7e3a; }
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+/* Mensagens de status */
+.status-msg {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    padding: 10px;
+    background: #eef2ff;
+    border-radius: 40px;
+    color: #155e75;
+}
+
+/* Checklist */
+.checklist-wrapper {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+.checklist-section {
+    margin-bottom: 22px;
+    border-bottom: 1px dashed #cbd5e1;
+    padding-bottom: 12px;
+}
+.checklist-section h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    background: #eef3fa;
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 40px;
+    margin-bottom: 12px;
+    color: #0f3b4f;
+}
+.checklist-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px 16px;
+}
+.checklist-items label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    cursor: pointer;
+    padding: 6px 4px;
+    transition: 0.1s;
+}
+.checklist-items input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #1b6b8f;
+}
+.obs-area { margin: 20px 0 12px; }
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.75rem;
+    color: #4b6a7c;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 850px) {
+    .dashboard { grid-template-columns: 1fr; }
+    h1 { font-size: 1.3rem; }
+    .tab-btn { padding: 12px; font-size: 1rem; }
+}
+
+/* Modo de Impressão */
+@media print {
+    .no-print, .tabs, .scanner-area, .scanner-buttons, .action-buttons button, .status-msg {
+        display: none !important;
+    }
+    #cadastro { display: none !important; }
+    #inspecao { display: block !important; }
+    .card {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        break-inside: avoid;
+    }
+    .dashboard { display: block; }
+    body { background: white; padding: 0; }
+    .checklist-wrapper { max-height: none; overflow: visible; }
+    .input-group input, .input-group textarea {
+        border: none;
+        border-bottom: 1px solid #aaa;
+        padding-left: 0;
+        border-radius: 0;
+    }
+}
